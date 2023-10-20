@@ -9,13 +9,13 @@
 - name: Set hostname
   cisco.ios.ios_config:
     lines:
-      - "hostname ios-smoke"
+      - hostname ios-smoke
     match: none
 
 - name: Hit diff_ignore_lines
   cisco.ios.ios_config:
     lines:
-      - "hostname ios-smoke-diff"
+      - hostname ios-smoke-diff
     diff_ignore_lines:
       - hostname ios-smoke
     save_when: modified
@@ -23,22 +23,22 @@
 - name: Return hostname
   cisco.ios.ios_config:
     lines:
-      - "hostname {{ shorter_hostname }}"
+      - hostname {{ shorter_hostname }}
     match: none
 
 - name: Hit items with parents
   cisco.ios.ios_config:
     lines:
-      - "permit ip any any log"
+      - permit ip any any log
     parents:
-      - "ip access-list extended test"
+      - ip access-list extended test
     match: exact
   register: result
 
 - name: Teardown
   cisco.ios.ios_config:
     lines:
-      - "no ip access-list extended test"
+      - no ip access-list extended test
     match: none
 
 - name: Setup test networkconfig.difference, replace=block
@@ -48,11 +48,11 @@
       - permit ip host 192.0.2.2 any log
       - permit ip host 192.0.2.3 any log
     parents:
-      - "ip access-list extended test"
+      - ip access-list extended test
     before:
-      - "no ip access-list extended test"
+      - no ip access-list extended test
     after:
-      - "exit"
+      - exit
     match: none
 
 - name: Test networkconfig.difference, replace=block
@@ -63,15 +63,15 @@
       - permit ip host 192.0.2.3 any log
       - permit ip host 192.0.2.4 any log
     parents:
-      - "ip access-list extended test"
+      - ip access-list extended test
     replace: block
     after:
-      - "exit"
+      - exit
   register: result
 
 - ansible.builtin.assert:
     that:
-      - "result.changed == true"
+      - result.changed == true
       - "'ip access-list extended test' in result.updates"
       - "'permit ip host 192.0.2.1 any log' in result.updates"
       - "'permit ip host 192.0.2.2 any log' in result.updates"
@@ -118,7 +118,7 @@
 
     - ansible.builtin.assert:
         that:
-          - "result.changed == true"
+          - result.changed == true
           - "'interface port-channel 20' in result.commands"
 
     - name: Set link aggregation group to members
@@ -132,7 +132,7 @@
 
     - ansible.builtin.assert:
         that:
-          - "result.changed == true"
+          - result.changed == true
           - "'interface GigabitEthernet2' in result.commands"
           - "'channel-group 20 mode active' in result.commands"
           - "'interface GigabitEthernet3' in result.commands"
@@ -148,7 +148,7 @@
 
     - ansible.builtin.assert:
         that:
-          - "result.changed == true"
+          - result.changed == true
           - "'interface GigabitEthernet2' in result.commands"
           - "'no channel-group 20 mode active' in result.commands"
 
@@ -160,7 +160,7 @@
 
     - ansible.builtin.assert:
         that:
-          - "result.changed == true"
+          - result.changed == true
           - "'no interface port-channel 20' in result.commands"
 
     - name: Create aggregate of linkagg definitions
@@ -170,12 +170,12 @@
           - group: 20
             mode: active
             members:
-              - "GigabitEthernet2"
+              - GigabitEthernet2
       register: result
 
     - ansible.builtin.assert:
         that:
-          - "result.changed == true"
+          - result.changed == true
           - "'interface port-channel 5' in result.commands"
           - "'interface port-channel 20' in result.commands"
           - "'interface GigabitEthernet2' in result.commands"

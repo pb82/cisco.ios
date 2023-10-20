@@ -1,7 +1,6 @@
 ---
 merged:
   before: {}
-
   commands:
     - router ospf 200 vrf blue
     - auto-cost reference-bandwidth 4
@@ -70,7 +69,7 @@ merged:
         network:
           - address: 198.51.100.0
             area: "5"
-            wildcard_bits: 0.0.0.255
+            wildcard_bits: "0.0.0.255"
         process_id: 1
 
 replaced:
@@ -137,7 +136,7 @@ replaced:
         network:
           - address: 198.51.100.0
             area: "5"
-            wildcard_bits: 0.0.0.255
+            wildcard_bits: "0.0.0.255"
         process_id: 1
       - areas:
           - area_id: "5"
@@ -219,7 +218,6 @@ deleted:
     - no router ospf 1
 
   after: {}
-
 rtt:
   commands:
     - no router ospf 100 vrf blue

@@ -7,7 +7,7 @@
       register: result
       cisco.ios.ios_hostname:
         config:
-          hostname: "testname"
+          hostname: testname
         state: rendered
 
     - ansible.builtin.assert:

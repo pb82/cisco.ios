@@ -1,8 +1,7 @@
 ---
 - name: Populate configuration
   vars:
-    lines:
-      "interface GigabitEthernet 1\nlldp receive\nlldp transmit\ninterface GigabitEthernet 2\nlldp receive\nlldp transmit\ninterface GigabitEthernet 3\n\
-      lldp receive\nlldp transmit\n"
+    lines: "interface GigabitEthernet 1\nlldp receive\nlldp transmit\ninterface GigabitEthernet 2\nlldp receive\nlldp transmit\ninterface GigabitEthernet 3\nlldp
+      receive\nlldp transmit\n"
   ansible.netcommon.cli_config:
     config: "{{ lines }}"

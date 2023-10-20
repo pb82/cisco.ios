@@ -11,7 +11,7 @@
       register: result
       cisco.ios.ios_snmp_server: &id001
         config:
-          location: "location entry for snmp"
+          location: location entry for snmp
           packet_size: 500
           communities:
             - acl_v4: acl_uq

@@ -2,5 +2,5 @@
 - name: Pre post task populate hostname configuration
   cisco.ios.ios_hostname:
     config:
-      hostname: "box1"
+      hostname: box1
     state: merged

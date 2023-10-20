@@ -1,7 +1,6 @@
 ---
 merged:
   before: {}
-
   commands:
     - route-map test_2 deny 10
     - match security-group source tag 10 20
@@ -201,7 +200,7 @@ overridden:
               next_hop:
                 acls:
                   - "10"
-                  - "test1_acl"
+                  - test1_acl
             length:
               maximum: 100
               minimum: 10
@@ -218,7 +217,7 @@ overridden:
             extcommunity:
               vpn_distinguisher:
                 additive: true
-                address: "192.0.2.1:12"
+                address: 192.0.2.1:12
             as_path:
               prepend:
                 as_number:
@@ -272,14 +271,14 @@ overridden:
                 id: "10"
                 pre_bestpath: true
             ip:
-              address: "192.0.2.1"
+              address: 192.0.2.1
               df: 1
               next_hop:
                 recursive:
-                  address: "198.110.51.1"
+                  address: 198.110.51.1
                   global_route: true
                 verify_availability:
-                  address: "198.110.51.2"
+                  address: 198.110.51.2
                   sequence: 100
                   track: 10
               precedence:
@@ -515,7 +514,7 @@ parsed:
                 as_number:
                   - "64512"
             community:
-              number: "65000:100 65000:200"
+              number: 65000:100 65000:200
         - action: deny
           continue_entry:
             entry_sequence: 100
