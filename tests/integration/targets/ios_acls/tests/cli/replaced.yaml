@@ -23,10 +23,10 @@
                     sequence: 10
                     source:
                       address: 192.0.2.0
-                      wildcard_bits: 0.0.0.255
+                      wildcard_bits: "0.0.0.255"
                     destination:
                       address: 192.0.3.0
-                      wildcard_bits: 0.0.0.255
+                      wildcard_bits: "0.0.0.255"
                       port_protocol:
                         eq: www
                     dscp: ef
@@ -42,10 +42,10 @@
                         ack: true
                     source:
                       address: 198.51.100.0
-                      wildcard_bits: 0.0.0.255
+                      wildcard_bits: "0.0.0.255"
                     destination:
                       address: 198.51.101.0
-                      wildcard_bits: 0.0.0.255
+                      wildcard_bits: "0.0.0.255"
                       port_protocol:
                         eq: telnet
                     tos:
@@ -60,12 +60,12 @@
                         syn: true
                     source:
                       address: 198.51.100.0
-                      wildcard_bits: 0.0.0.255
+                      wildcard_bits: "0.0.0.255"
                       port_protocol:
                         eq: telnet
                     destination:
                       address: 198.51.110.0
-                      wildcard_bits: 0.0.0.255
+                      wildcard_bits: "0.0.0.255"
                       port_protocol:
                         eq: telnet
                     dscp: ef

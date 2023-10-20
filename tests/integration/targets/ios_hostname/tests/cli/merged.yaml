@@ -11,7 +11,7 @@
       register: result
       cisco.ios.ios_hostname: &id001
         config:
-          hostname: "boxTest"
+          hostname: boxTest
         state: merged
 
     - name: Ios_hostname merged - assert commands

@@ -1,7 +1,6 @@
 ---
 merged:
   before: {}
-
   commands:
     - router bgp 65000
     - address-family ipv4 multicast
@@ -156,11 +155,11 @@ overridden:
                   type_1: true
               metric: 15
               route_map: foo
-      - afi: "ipv4"
+      - afi: ipv4
         aggregate_addresses:
-          - address: "192.0.2.1"
+          - address: 192.0.2.1
             as_confed_set: true
-            netmask: "255.255.255.255"
+            netmask: 255.255.255.255
         bgp:
           aggregate_timer: 10
           dampening:
@@ -172,15 +171,15 @@ overridden:
             detection:
               threshold: 150
         networks:
-          - address: "198.51.110.10"
+          - address: 198.51.110.10
             backdoor: true
-            mask: "255.255.255.255"
-        safi: "multicast"
+            mask: 255.255.255.255
+        safi: multicast
         # vrf: "blue"
-      - afi: "ipv4"
-        safi: "mdt"
-      - afi: "ipv6"
-      - afi: "ipv6"
+      - afi: ipv4
+        safi: mdt
+      - afi: ipv6
+      - afi: ipv6
         bgp:
           aggregate_timer: 10
           dampening:
@@ -194,7 +193,7 @@ overridden:
         networks:
           - address: 2001:DB8:0:3::/64
             route_map: test_ipv6
-        safi: "multicast"
+        safi: multicast
     as_number: "65000"
 
 replaced:

@@ -10,11 +10,11 @@
     - name: Setup
       cisco.ios.ios_config: &rem
         lines:
-          - "no description"
-          - "no speed"
-          - "shutdown"
-          - "no ip address"
-          - "no ipv6 address"
+          - no description
+          - no speed
+          - shutdown
+          - no ip address
+          - no ipv6 address
         parents:
           - "{{ intf }}"
       with_items: "{{ interfaces }}"

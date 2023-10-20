@@ -45,7 +45,7 @@
   register: get_hostname
   ios_command:
     commands:
-      - "show running-config | section hostname"
+      - show running-config | section hostname
 
 - name: Assert that the hostname is correctly set
   ansible.builtin.assert:
@@ -108,7 +108,7 @@
   register: get_desc
   ios_command:
     commands:
-      - "show interfaces {{interface_name}} | include Description"
+      - show interfaces {{interface_name}} | include Description
 
 - name: Assert that the description equals the start description
   ansible.builtin.assert:
@@ -119,7 +119,7 @@
   register: get_hostname_again
   ios_command:
     commands:
-      - "show running-config | section hostname"
+      - show running-config | section hostname
 
 - name: Assert that the hostname is not rolled back
   ansible.builtin.assert:

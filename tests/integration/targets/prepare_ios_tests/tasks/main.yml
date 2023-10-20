@@ -23,7 +23,7 @@
 
 - name: Set test facts to layer 2
   ansible.builtin.set_fact:
-    switch_type: "L2"
+    switch_type: L2
   when: '"l2" in result.stdout[0]'
 
 - name: Block to set facts

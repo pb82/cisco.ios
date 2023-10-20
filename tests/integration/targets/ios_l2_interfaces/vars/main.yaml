@@ -170,7 +170,7 @@ gathered:
       name: GigabitEthernet3
       trunk:
         allowed_vlans:
-          - "10-20"
+          - 10-20
           - "40"
         encapsulation: dot1q
         native_vlan: 10
@@ -186,7 +186,7 @@ parsed:
     - name: GigabitEthernet3
       trunk:
         allowed_vlans:
-          - "15-20"
+          - 15-20
           - "40"
         encapsulation: dot1q
         native_vlan: 20
